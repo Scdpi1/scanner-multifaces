@@ -1,0 +1,34 @@
+{
+    "criador": "SCDPI.1",
+    "github": "https://github.com/scdpi.1",
+    "data": "2026-02-21 11:58:38.230705",
+    "alvo": "192.168.1.0/24",
+    "resultados_tcp": [],
+    "so": {
+        "so_provavel": "Desconhecido"
+    },
+    "erros": [
+        "Erro TCP 21: [Errno -2] Name or service not known",
+        "Erro TCP 22: [Errno -2] Name or service not known",
+        "Erro TCP 23: [Errno -2] Name or service not known",
+        "Erro TCP 25: [Errno -2] Name or service not known",
+        "Erro TCP 53: [Errno -2] Name or service not known",
+        "Erro TCP 80: [Errno -2] Name or service not known",
+        "Erro TCP 110: [Errno -2] Name or service not known",
+        "Erro TCP 111: [Errno -2] Name or service not known",
+        "Erro TCP 135: [Errno -2] Name or service not known",
+        "Erro TCP 139: [Errno -2] Name or service not known",
+        "Erro TCP 143: [Errno -2] Name or service not known",
+        "Erro TCP 443: [Errno -2] Name or service not known",
+        "Erro TCP 445: [Errno -2] Name or service not known",
+        "Erro TCP 993: [Errno -2] Name or service not known",
+        "Erro TCP 995: [Errno -2] Name or service not known",
+        "Erro TCP 1723: [Errno -2] Name or service not known",
+        "Erro TCP 3306: [Errno -2] Name or service not known",
+        "Erro TCP 3389: [Errno -2] Name or service not known",
+        "Erro TCP 5900: [Errno -2] Name or service not known",
+        "Erro TCP 8080: [Errno -2] Name or service not known",
+        "Erro TCP 8443: [Errno -2] Name or service not known",
+        "Erro TCP 8888: [Errno -2] Name or service not known"
+    ]
+}

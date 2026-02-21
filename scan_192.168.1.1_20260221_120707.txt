@@ -1,0 +1,15 @@
+SCAN REALIZADO POR: SCDPI.1 (github.com/scdpi.1)
+DATA: 2026-02-21 12:07:07.069733
+ALVO: 192.168.1.1
+============================================================
+
+PORTAS ABERTAS:
+53/TCP - None
+80/TCP - HTTP/1.0 403 Forbidden
+Content-Type: text/html
+Content-Length: 341
+Connection: close
+Date: Sat, 
+443/TCP - None
+
+SO DETECTADO: Linux/Unix

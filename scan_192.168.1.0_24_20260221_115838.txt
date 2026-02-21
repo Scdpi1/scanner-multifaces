@@ -1,0 +1,8 @@
+SCAN REALIZADO POR: SCDPI.1 (github.com/scdpi.1)
+DATA: 2026-02-21 11:58:38.230422
+ALVO: 192.168.1.0/24
+============================================================
+
+PORTAS ABERTAS:
+
+SO DETECTADO: Desconhecido

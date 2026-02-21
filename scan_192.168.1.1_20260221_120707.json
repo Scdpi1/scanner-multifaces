@@ -1,0 +1,30 @@
+{
+    "criador": "SCDPI.1",
+    "github": "https://github.com/scdpi.1",
+    "data": "2026-02-21 12:07:07.070061",
+    "alvo": "192.168.1.1",
+    "resultados_tcp": [
+        {
+            "porta": 53,
+            "protocolo": "tcp",
+            "status": "ABERTA",
+            "banner": null
+        },
+        {
+            "porta": 80,
+            "protocolo": "tcp",
+            "status": "ABERTA",
+            "banner": "HTTP/1.0 403 Forbidden\r\nContent-Type: text/html\r\nContent-Length: 341\r\nConnection: close\r\nDate: Sat, "
+        },
+        {
+            "porta": 443,
+            "protocolo": "tcp",
+            "status": "ABERTA",
+            "banner": null
+        }
+    ],
+    "so": {
+        "so_provavel": "Linux/Unix"
+    },
+    "erros": []
+}
