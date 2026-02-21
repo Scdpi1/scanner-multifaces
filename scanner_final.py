@@ -90,7 +90,10 @@ class FaceWeb:
             import threading
             
             app = Flask(__name__)
-            resultados_web = {}
+            
+            # CRIA a variável global DENTRO da função
+            global resultados_web
+            resultados_web = {}  # ← INICIALIZA AQUI!
             
             @app.route('/')
             def home():
@@ -153,6 +156,8 @@ class FaceWeb:
                             padding: 10px;
                             font-size: 12px;
                             white-space: pre-wrap;
+                            max-height: 400px;
+                            overflow-y: auto;
                         }
                         footer {
                             margin-top: 30px;
@@ -198,35 +203,50 @@ class FaceWeb:
             
             @app.route('/scan', methods=['POST'])
             def scan():
-                alvo = request.form['alvo']
-                scanner = ScannerPrincipal(alvo)
-                scanner.scan_completo()
-                resultados = scanner.salvar_resultados()
-                
-                global resultados_web
-                resultados_web[alvo] = {
-                    'data': str(datetime.now()),
-                    'resultados': resultados,
-                    'so': scanner.fingerprint_detalhado
-                }
-                
-                return f"""
-                <html>
-                <head><meta http-equiv="refresh" content="2;url=/"></head>
-                <body style="background:#000;color:#0f0;text-align:center;padding:50px;">
-                    <h1>✅ SCAN CONCLUÍDO EM {alvo}</h1>
-                    <p>Resultados salvos. Redirecionando...</p>
-                </body>
-                </html>
-                """
+                global resultados_web  # ← DECLARA GLOBAL AQUI!
+                try:
+                    alvo = request.form['alvo']
+                    scanner = ScannerPrincipal(alvo)
+                    scanner.scan_completo()
+                    arquivos = scanner.salvar_resultados()
+                    
+                    # Atualiza a variável global
+                    resultados_web[alvo] = {
+                        'data': str(datetime.now()),
+                        'resultados': arquivos,
+                        'portas': len(scanner.resultados_tcp)
+                    }
+                    
+                    return f"""
+                    <html>
+                    <head><meta http-equiv="refresh" content="2;url=/"></head>
+                    <body style="background:#000;color:#0f0;text-align:center;padding:50px;">
+                        <h1>✅ SCAN CONCLUÍDO EM {alvo}</h1>
+                        <p>Resultados salvos: {arquivos}.txt e .json</p>
+                        <p>Redirecionando...</p>
+                    </body>
+                    </html>
+                    """
+                except Exception as e:
+                    return f"""
+                    <html>
+                    <body style="background:#000;color:#f00;text-align:center;padding:50px;">
+                        <h1>❌ ERRO NO SCAN</h1>
+                        <p>{str(e)}</p>
+                        <p><a href="/" style="color:#0f0;">Voltar</a></p>
+                    </body>
+                    </html>
+                    """
             
             print(f"{Cores.VERDE}[+] Servidor web rodando em: http://localhost:{porta}{Cores.RESET}")
             print(f"{Cores.AMARELO}[!] Pressione Ctrl+C para parar{Cores.RESET}")
-            app.run(host='0.0.0.0', port=porta, debug=False)
+            app.run(host='0.0.0.0', port=porta, debug=True)
             
-        except ImportError:
+        except ImportError as e:
             print(f"{Cores.VERMELHO}[!] Flask não instalado. Para modo web: pip install flask{Cores.RESET}")
-
+            print(f"Erro: {e}")
+        except Exception as e:
+            print(f"{Cores.VERMELHO}[!] Erro ao iniciar servidor: {e}{Cores.RESET}")
 # =================================================================
 # FACE 3: API (RESTful - para integração com outras ferramentas)
 # =================================================================
