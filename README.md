@@ -1,5 +1,7 @@
 # 🔍 SCDPI.1 MULTISCANNER
-
+![Python](https://img.shields.io/badge/Python-3.8%2B-blue)
+![Security](https://img.shields.io/badge/Security-Valida%C3%A7%C3%A3o%20%7C%20Rate%20Limit%20%7C%20Timeout-green)
+![Versão](https://img.shields.io/badge/Vers%C3%A3o-3.0-orange)
 ### CRIADO POR ALGUÉM QUE PROVA QUE LIMITES SÃO MENTIRA
 
 ![idade](https://img.shields.io/badge/idade-57%20anos-blue)
